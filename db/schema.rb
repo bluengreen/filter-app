@@ -200,7 +200,7 @@ ActiveRecord::Schema.define(version: 2020_07_03_150713) do
     t.integer "category_order", array: true
     t.integer "dupe_of_id"
     t.boolean "trend_analyzed", default: false
-    t.boolean "paywall"
+    t.boolean "paywall", default: false
     t.index ["absolute_score", "published_at"], name: "index_news_items_on_absolute_score_and_published_at"
     t.index ["absolute_score"], name: "index_news_items_on_absolute_score"
     t.index ["dupe_of_id"], name: "index_news_items_on_dupe_of_id"

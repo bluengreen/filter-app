@@ -35,7 +35,7 @@
 #  category_order              :integer          is an Array
 #  dupe_of_id                  :integer
 #  trend_analyzed              :boolean          default(FALSE)
-#  paywall                     :boolean
+#  paywall                     :boolean          default(FALSE)
 #
 # Indexes
 #
