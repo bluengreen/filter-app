@@ -83,15 +83,35 @@
       </span>
     </div>
   </div>
+
 {:else}
+
   <div class="news-item__list-item">
-    {#if hasImage}
-      <div class="background-frame">
-        <img class="background" src={item.image.full_url} alt="Teaser Foto" />
-      </div>
-    {/if}
-    <a href={url} target="_blank" rel="noopener" title={item.title}>
-      {truncate(item.title, 130)}
-    </a>
+    <div>
+      <h3><a href={url} target="_blank" rel="noopener" title={item.title}>
+          {truncate(item.title, 130)}
+      </a></h3>
+      <span class="source">
+        {#if item.source.logo}
+          <img src={item.source.logo} width="16" height="16" alt="Logo" />
+        {/if}
+        <a title={item.source.name} href={item.source.url}>
+          {truncate(item.source.name, 30)}
+        </a>
+      </span>
+    </div>
+
+    <div>
+      {#if item.paywall}
+        <span class="label label-warning">
+          <i class="fa fa-euro fa-fw" title="Paywall" ></i>
+        </span>
+      {/if}
+      {#if hasImage}
+        <div class="background-frame">
+          <img class="background" src={item.image.full_url} alt="Teaser Foto" />
+        </div>
+      {/if}
+    </div>
   </div>
 {/if}

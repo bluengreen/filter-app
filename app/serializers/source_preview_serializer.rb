@@ -3,14 +3,18 @@ class SourcePreviewSerializer < ApplicationSerializer
   attributes :type, :url, :logo
 
   def url
-    "https://#{Setting.host}/sources/#{object.id}-#{object.name.to_url}"
+    "#{prot}://#{Setting.host}/sources/#{object.id}-#{object.name.to_url}"
   end
 
   def logo
     if object.logo.present?
-      "https://#{Setting.host}" + object.logo.url(:small)
+      "#{prot}://#{Setting.host}" + object.logo.url(:small)
     else
       nil
     end
+  end
+
+  def prot
+    Setting.host['localhost'] ? 'http' : 'https'
   end
 end

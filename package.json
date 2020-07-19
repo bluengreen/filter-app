@@ -5,6 +5,7 @@
     "highcharts": "^7.2.0",
     "qs": "^6.9.0",
     "svelte": "^3.24.0",
+    "svelte-infinite-scroll": "^1.4.1",
     "svelte-loader": "^2.13.6",
     "uiv": "^0.33.0",
     "vue": "^2.6.10",
@@ -23,5 +24,10 @@
     "prettier-plugin-svelte": "^1.1.0",
     "vue-eslint-parser": "^6.0.4",
     "webpack-dev-server": "^3.11.0"
+  },
+  "prettier": {
+    "svelteSortOrder": "scripts-markup-styles",
+    "trailingComma": "es5",
+    "semi": false
   }
 }

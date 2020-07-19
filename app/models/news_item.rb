@@ -321,7 +321,8 @@ class NewsItem < ApplicationRecord
   end
 
   def image_url_full
-    "https://#{Setting.host}#{image.url}"
+    prot = Setting.host['localhost'] ? 'http' : 'https'
+    "#{prot}://#{Setting.host}#{image.url}"
   end
 
   def self.cleanup

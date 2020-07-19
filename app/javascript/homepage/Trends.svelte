@@ -15,7 +15,7 @@
   fetchTrends();
 
   function selectTrend(trend) {
-    value = trend
+    value = trend;
   }
 </script>
 
@@ -34,11 +34,13 @@
       margin-bottom: 20px;
     }
   }
-  .label {
+  .trend {
     margin-right: 5px;
   }
   .btn-link {
     padding: 0;
+    vertical-align: top;
+    border: 0;
   }
 </style>
 
@@ -55,7 +57,12 @@
   {/if}
   <div>
     {#each trends as trend}
-      <span class="label label-default" on:click={e => selectTrend(trend)}>{trend.name}</span>
+      <button
+        class:btn-primary={trend == value}
+        class="btn btn-default btn-xs trend"
+        on:click={e => selectTrend(trend)}>
+        {trend.name}
+      </button>
     {/each}
   </div>
 </div>

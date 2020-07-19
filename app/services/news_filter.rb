@@ -12,6 +12,7 @@ class NewsFilter
   attr_accessor :from
   attr_accessor :to
   attr_accessor :trend
+  attr_accessor :mediatype
 
   def news_items
     @news_items = NewsItem.sorted.visible.includes(:categories, :source).limit(@per_page).page(@page)
@@ -79,6 +80,10 @@ class NewsFilter
       to = Time.zone.parse(@to).to_date
       @news_items = @news_items.where('published_at::date <= ?', to + 1)
     end
+    if @mediatype.present?
+      types = [*mediatype].map { |i| i.split(',') }.flatten
+      @news_items = apply_mediatype_filter(@news_items, types)
+    end
     if @query.present?
       @news_items = @news_items.
         search_full_text(@query).
@@ -93,6 +98,29 @@ class NewsFilter
     else
       '0'
     end
+  end
+
+  def apply_mediatype_filter(scope, mediatypes)
+    if mediatypes.include?('all')
+      return scope
+    end
+    table = Source.arel_table
+    parts = mediatypes.map do |t|
+      case t
+      when 'feed'
+        table[:type].eq("FeedSource")
+      when 'podcasts'
+        table[:type].eq("PodcastSource")
+      when 'youtube'
+        table[:type].eq("YoutubeSource")
+      when 'reddit'
+        table[:type].eq("RedditSource")
+      when 'facebook'
+        table[:type].eq("FacebookSource")
+      end
+    end
+    or_part = parts.reduce { |agg,e| agg.or(e) }
+    scope.where(source_id: Source.where(or_part))
   end
 
   def escape(string_array)

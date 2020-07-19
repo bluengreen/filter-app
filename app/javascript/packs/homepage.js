@@ -6,6 +6,7 @@
 // All it does is render <div>Hello Svelte!</div> at the bottom of the page.
 
 import Homepage from 'homepage/app.svelte'
+import 'homepage/style.scss'
 
 document.addEventListener('DOMContentLoaded', () => {
   Array.from(document.querySelectorAll("homepage-app")).forEach((el) => {

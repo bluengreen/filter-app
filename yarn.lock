@@ -7755,6 +7755,11 @@ svelte-dev-helper@^1.1.9:
   resolved "https://registry.yarnpkg.com/svelte-dev-helper/-/svelte-dev-helper-1.1.9.tgz#7d187db5c6cdbbd64d75a32f91b8998bde3273c3"
   integrity sha1-fRh9tcbNu9ZNdaMvkbiZi94yc8M=
 
+svelte-infinite-scroll@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/svelte-infinite-scroll/-/svelte-infinite-scroll-1.4.1.tgz#327f54e7d15bd1f03dcb5a2f2fd41db9b9406ff7"
+  integrity sha512-yesfAq24EuZ0onjRHW+m6U+pZab6G/nxsCv/RodQAjUr3+RtpT2BYcrykTHEakFGMUC+zKgVqAZF8iuytb5OjA==
+
 svelte-loader@^2.13.6:
   version "2.13.6"
   resolved "https://registry.yarnpkg.com/svelte-loader/-/svelte-loader-2.13.6.tgz#3d5efd5886c2bab034606d5af0cce659da3ee555"
