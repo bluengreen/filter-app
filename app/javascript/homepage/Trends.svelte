@@ -20,20 +20,6 @@
 </script>
 
 <style>
-  .trend-wrapper :global(.panel) {
-    width: 500px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-  @media screen and (max-width: 1100px) {
-    .trend-wrapper {
-      display: block;
-    }
-    .trend-wrapper :global(.panel) {
-      margin: auto;
-      margin-bottom: 20px;
-    }
-  }
   .trend {
     margin-right: 5px;
   }
