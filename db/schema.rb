@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_03_150713) do
+ActiveRecord::Schema.define(version: 2021_06_07_234715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "fuzzystrmatch"
@@ -36,42 +36,6 @@ ActiveRecord::Schema.define(version: 2020_07_03_150713) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
-
-  create_table "ahoy_events", force: :cascade do |t|
-    t.bigint "visit_id"
-    t.string "name"
-    t.jsonb "properties"
-    t.datetime "time"
-    t.index ["name", "time"], name: "index_ahoy_events_on_name_and_time"
-    t.index ["properties"], name: "index_ahoy_events_on_properties_jsonb_path_ops", opclass: :jsonb_path_ops, using: :gin
-    t.index ["visit_id"], name: "index_ahoy_events_on_visit_id"
-  end
-
-  create_table "ahoy_visits", force: :cascade do |t|
-    t.string "visit_token"
-    t.string "visitor_token"
-    t.string "ip"
-    t.text "user_agent"
-    t.text "referrer"
-    t.string "referring_domain"
-    t.text "landing_page"
-    t.string "whois_hostname"
-    t.string "recommended_username"
-    t.boolean "used_search"
-    t.boolean "used_job_site"
-    t.string "browser"
-    t.string "os"
-    t.string "device_type"
-    t.string "utm_source"
-    t.string "utm_medium"
-    t.string "utm_term"
-    t.string "utm_content"
-    t.string "utm_campaign"
-    t.datetime "started_at"
-    t.string "coworkr_code"
-    t.boolean "synced", default: false
-    t.index ["visit_token"], name: "index_ahoy_visits_on_visit_token", unique: true
   end
 
   create_table "categories", id: :serial, force: :cascade do |t|
@@ -132,39 +96,6 @@ ActiveRecord::Schema.define(version: 2020_07_03_150713) do
     t.boolean "different", default: false
     t.index ["from_id"], name: "index_linkages_on_from_id"
     t.index ["to_id"], name: "index_linkages_on_to_id"
-  end
-
-  create_table "mail_subscription_histories", id: :serial, force: :cascade do |t|
-    t.integer "mail_subscription_id"
-    t.integer "news_items_in_mail"
-    t.datetime "opened_at"
-    t.string "open_token"
-    t.integer "click_count", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["mail_subscription_id"], name: "index_mail_subscription_histories_on_mail_subscription_id"
-  end
-
-  create_table "mail_subscriptions", id: :serial, force: :cascade do |t|
-    t.text "email"
-    t.json "preferences"
-    t.string "token"
-    t.datetime "last_send_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "limit"
-    t.integer "gender"
-    t.string "first_name"
-    t.string "last_name"
-    t.string "academic_title"
-    t.string "company"
-    t.string "position"
-    t.datetime "deleted_at"
-    t.integer "status", default: 0
-    t.datetime "remembered_at"
-    t.date "last_reminder_sent_at"
-    t.integer "number_of_reminder_sent", default: 0
-    t.index ["token"], name: "index_mail_subscriptions_on_token", unique: true
   end
 
   create_table "news_items", id: :serial, force: :cascade do |t|
@@ -319,7 +250,6 @@ ActiveRecord::Schema.define(version: 2020_07_03_150713) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "mail_subscription_histories", "mail_subscriptions"
   add_foreign_key "trends_usages", "news_items"
   add_foreign_key "trends_usages", "sources"
 end

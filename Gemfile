@@ -8,7 +8,7 @@ gem "pg"
 # gem "simple-navigation"
 # gem "simple-navigation-bootstrap", git: "https://github.com/pzgz/simple-navigation-bootstrap.git"
 # gem 'bootsnap'
-
+gem 'squasher', '>= 0.6.0'
 gem "groupdate"
 # gem "browser"
 gem "bcrypt-ruby"
@@ -28,7 +28,7 @@ gem "open_uri_redirections"
 gem "angularjs-rails", "1.2.18"
 gem 'parallel'
 
-gem "ahoy_matey", "~> 2.1"
+# gem "ahoy_matey", "~> 2.1"
 gem 'devise'
 gem 'cancancan'
 # gem 'devise-i18n'
