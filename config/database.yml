@@ -2,7 +2,7 @@ development:
   adapter: postgresql
   encoding: unicode
   database: hrfilter_<%= ENV['USER'] %>_dev
-  template: template0
+  # template: template0
   pool: 5
 
 test:
@@ -11,4 +11,3 @@ test:
   database: "hrfilter_<%= ENV['LOGNAME'] %>_test"
   template: template0
   pool: 5
-

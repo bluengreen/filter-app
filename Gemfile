@@ -14,7 +14,7 @@ gem "browser"
 gem "bcrypt-ruby"
 gem "sitemap_generator"
 gem "httparty"
-gem "feedjira"
+gem "feedjira", "~> 2.2.0"
 gem "excon"
 gem 'typhoeus'
 gem "mechanize"
@@ -101,7 +101,7 @@ group :development do
 end
 
 group :development, :test do
-  gem "thin"
+  gem "puma"
 end
 gem "pry-rails"
 gem 'rack-attack'
