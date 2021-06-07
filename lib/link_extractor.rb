@@ -1,4 +1,4 @@
-require 'premailer/html_to_plain_text'
+# require 'premailer/html_to_plain_text'
 class LinkExtractor
   include HtmlToPlainText
   ARTICLE_RULES = %w[

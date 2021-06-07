@@ -1,16 +1,16 @@
 source "https://rubygems.org"
 
 gem "rails", "~> 6.0.0"
-gem 'babel-transpiler'
+# gem 'babel-transpiler'
 gem "pg"
-gem "mail_form"
-gem "simple_form"
-gem "simple-navigation"
-gem "simple-navigation-bootstrap", git: "https://github.com/pzgz/simple-navigation-bootstrap.git"
-gem 'bootsnap'
+# gem "mail_form"
+# gem "simple_form"
+# gem "simple-navigation"
+# gem "simple-navigation-bootstrap", git: "https://github.com/pzgz/simple-navigation-bootstrap.git"
+# gem 'bootsnap'
 
 gem "groupdate"
-gem "browser"
+# gem "browser"
 gem "bcrypt-ruby"
 gem "sitemap_generator"
 gem "httparty"
@@ -33,13 +33,13 @@ gem 'devise'
 gem 'cancancan'
 # gem 'devise-i18n'
 
-gem "sentry-raven", require: false
+# gem "sentry-raven", require: false
 
 gem "paperclip"
 gem "paperclip-optimizer"
 gem 'image_optim_pack'
 gem 'mini_magick'
-gem 'datagrid'
+# gem 'datagrid'
 
 gem 'rack', '~> 2.0'
 gem 'sidekiq'
@@ -49,23 +49,23 @@ gem 'redis-namespace', '~> 1.5.0'
 gem 'google-cloud-firestore', require: false
 gem 'fcm', require: false
 
-gem 'webpacker', '~> 4.x'
+# gem 'webpacker', '~> 4.x'
 
 gem 'rack-cors', require: 'rack/cors'
 
 # TODO: > 5.0.7
-gem "sass-rails", git: 'https://github.com/rails/sass-rails.git'
-gem "coffee-rails"
-gem "bootstrap-sass", "~> 3.1"
-gem "bootswatch-rails"
-gem "font-awesome-rails", "~> 4.0"
+# gem "sass-rails", git: 'https://github.com/rails/sass-rails.git'
+# gem "coffee-rails"
+# gem "bootstrap-sass", "~> 3.1"
+# gem "bootswatch-rails"
+# gem "font-awesome-rails", "~> 4.0"
 # gem "therubyracer", :platforms => :ruby
 
-gem "uglifier", ">= 1.0.3"
-gem "jquery-rails"
-gem "sass"
-gem "slim-rails"
-gem "highcharts-rails"
+# gem "uglifier", ">= 1.0.3"
+# gem "jquery-rails"
+# gem "sass"
+# gem "slim-rails"
+# gem "highcharts-rails"
 gem "migration_data"
 
 gem 'grape'
@@ -74,13 +74,13 @@ gem 'active_model_serializers', '~> 0.10'
 gem "twitter", "~> 6.2.0"
 gem "omniauth-twitter"
 gem "ruby-stemmer"
-gem "premailer-rails"
+# gem "premailer-rails"
 # TODO: https://github.com/johnkoht/zurb-ink/pull/1
-gem "zurb-ink", git: 'https://github.com/pludoni/zurb-ink.git'
+# gem "zurb-ink", git: 'https://github.com/pludoni/zurb-ink.git'
 gem "rinku", require: "rails_rinku"
 gem "ipcat"
 gem "voight_kampff"
-gem "owlcarousel-rails", git: 'https://github.com/pludoni/owlcarousel-rails.git'
+# gem "owlcarousel-rails", git: 'https://github.com/pludoni/owlcarousel-rails.git'
 
 group :test do
   gem 'rails-controller-testing'

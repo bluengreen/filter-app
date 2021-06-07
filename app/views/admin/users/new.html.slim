@@ -1,7 +1,0 @@
-h2 Neuen Nutzer einladen
-
-= simple_form_for [:admin, @user] do |f|
-  = f.input :email
-  - if current_user.admin?
-    = f.input :role, as: :radio_buttons, collection: User.roles.keys
-  = f.submit class: 'btn btn-primary'

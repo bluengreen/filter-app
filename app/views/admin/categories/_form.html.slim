@@ -1,6 +1,0 @@
-= simple_form_for [:admin, @category], url: @category.persisted? ? admin_category_path(id: @category.id) : nil do |f|
-  = f.input :name
-  = f.input :keywords
-  = f.input :hash_tag
-  = f.input :logo, as: :file
-  = f.submit 'Speichern', class: 'btn btn-primary'

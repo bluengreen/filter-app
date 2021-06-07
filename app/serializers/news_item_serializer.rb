@@ -8,9 +8,9 @@ class NewsItemSerializer < ApplicationSerializer
   attribute :paywall
   has_one :source, serializer: SourcePreviewSerializer
 
-  def url
-    click_proxy_url(object, host: Setting.host, protocol: 'https', utm_source: 'app', utm_medium: 'api')
-  end
+  # def url
+  #   click_proxy_url(object, host: Setting.host, protocol: 'https', utm_source: 'app', utm_medium: 'api')
+  # end
 
   def original_url
     object.url
@@ -45,7 +45,8 @@ class NewsItemSerializer < ApplicationSerializer
   def image
     if object.image.present?
       {
-        full_url: object.image_url_full
+        #full_url: object.image_url_full
+        full_url: object.image.url
       }
     else
       {}
