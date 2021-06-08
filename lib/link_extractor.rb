@@ -1,4 +1,4 @@
-# require 'premailer/html_to_plain_text'
+require 'premailer/html_to_plain_text'
 class LinkExtractor
   include HtmlToPlainText
   ARTICLE_RULES = %w[
@@ -32,7 +32,7 @@ class LinkExtractor
   ].freeze
 
   def self.run(url, close_connection: true)
-    rf = new(site_name: Setting.site_name)
+    rf = new(site_name: 'https://itty.tv')
 
     if rf.run(url, close_connection: close_connection)
       rf

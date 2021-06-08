@@ -7,7 +7,7 @@ default: &default
   email: 'info@example.com'
   person_email: "andreas.manietta@pludoni.de"
   google_site_verification: ""
-  host: 'localhost:3000'
+  host: 'localhost:5000'
   max_age: 14
   person: Stefan Wienert
   person_email: 'info@example.com'

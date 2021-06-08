@@ -41,9 +41,9 @@ class NewsItemsController < ApplicationController
       last_mail = @current_user.histories.order('created_at desc').first if @current_user
       last_mail && last_mail.click!
     end
-    unless bot?
-      ahoy.track 'news_item', id: news_item.id, source_id: news_item.source_id, mail_subscription_id: @current_user&.id
-    end
+    # unless bot?
+    #   ahoy.track 'news_item', id: news_item.id, source_id: news_item.source_id, mail_subscription_id: @current_user&.id
+    # end
     redirect_to news_item.url
   end
 

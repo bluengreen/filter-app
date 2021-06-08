@@ -8,7 +8,7 @@ class Admin::SourcesController < AdminController
     @grid = SourcesGrid.new(grid_params) do |scope|
       scope.page(params[:page])
     end
-    @title = "Quellen"
+    @title = "Source"
   end
 
   def download_image
@@ -62,7 +62,7 @@ class Admin::SourcesController < AdminController
       @source = params[:source_type].constantize.new
       @source.value = 1
       @source.multiplicator = 1
-      @source.language = 'german'
+      @source.language = 'english'
     else
       @source_types = Source::SOURCE_TYPES
       render 'select'

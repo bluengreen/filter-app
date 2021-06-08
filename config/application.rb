@@ -32,8 +32,8 @@ module Baseapp
     # the framework and any gems in your application.
 
     ###
-    config.i18n.default_locale = :de
-    config.i18n.locale = :de
+    # config.i18n.default_locale = :en
+    # config.i18n.locale = :en
     config.encoding = "utf-8"
     config.filter_parameters += [:password]
 

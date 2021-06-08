@@ -25,6 +25,8 @@ class SourcesController < ApplicationController
 
     @page_description = "#{@source.news_items.count} News der Quelle #{@source.name}"
     @page_keywords = @categories.map(&:first).join(',')
+
+    render json: @source, status: :ok
   end
 
   def search

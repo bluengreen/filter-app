@@ -74,7 +74,7 @@ gem 'active_model_serializers', '~> 0.10'
 gem "twitter", "~> 6.2.0"
 gem "omniauth-twitter"
 gem "ruby-stemmer"
-# gem "premailer-rails"
+gem "premailer-rails"
 # TODO: https://github.com/johnkoht/zurb-ink/pull/1
 # gem "zurb-ink", git: 'https://github.com/pludoni/zurb-ink.git'
 gem "rinku", require: "rails_rinku"

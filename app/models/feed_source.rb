@@ -33,9 +33,9 @@
 
 class FeedSource < Source
   self.description = <<~DOC
-    Ein RSS/Atom Feed ist bekannt. Zusätzlich wird ein full_text_selector
-    verwendet, um aus den Anrisstexten die vollständige Beschreibung
-    runterzuladen. Wichtig für korrekte Kategorisierung/Suche
+    An RSS / Atom feed is known. In addition, a full_text_selector is used 
+    to download the complete description from the teaser texts.
+    Important for correct categorization / search
   DOC
   validates_uniqueness_of :url
   validates :twitter_account, format: { with: /\A\w+\z/ }, if: :twitter_account?

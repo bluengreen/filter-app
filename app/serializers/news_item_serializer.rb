@@ -36,7 +36,7 @@ class NewsItemSerializer < ApplicationSerializer
       twitter: object.retweets,
       reddit: object.reddit,
       impressions: Rails.cache.fetch([object, 'clicks'], expires_in: 1.hour) {
-        Ahoy::Event.where(name: 'news_item').where("(properties->>'id')::int = ?", object.id).count('distinct visit_id')
+        # Ahoy::Event.where(name: 'news_item').where("(properties->>'id')::int = ?", object.id).count('distinct visit_id')
       },
       internal_links: object.incoming_link_count,
     }
