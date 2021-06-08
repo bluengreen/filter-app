@@ -126,9 +126,9 @@ class Setting < ActiveRecord::Base
       Setting.select('value').find_by(key: name).try(:value)
     end
 
-    def method_missing(m, *args, &block)
-      (m != :find_by_key && get(m)) || super
-    end
+    # def method_missing(m, *args, &block)
+    #   (m != :find_by_key && get(m)) || super
+    # end
 
     def read_yaml
       configuration = begin

@@ -13,6 +13,7 @@ require "action_mailbox/engine"
 require "action_text/engine"
 require "action_view/railtie"
 require "action_cable/engine"
+require 'active_support/core_ext/numeric/bytes'
 # require "sprockets/railtie"
 require "rails/test_unit/railtie"
 
