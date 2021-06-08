@@ -1,8 +1,8 @@
 default: &default
-  site_name: 'HRfilter.de'
-  short_name: 'HRfilter'
-  topic_short: HR
-  from: 'noreply@hrfilter.de'
+  site_name: 'ContentAggregator'
+  short_name: 'Aggregator'
+  topic_short: TECH
+  from: 'noreply@example.com'
   key: 'hrfilter'
   email: 'info@example.com'
   person_email: "andreas.manietta@pludoni.de"
@@ -38,5 +38,3 @@ test:
 
 production:
   << : *default
-
-

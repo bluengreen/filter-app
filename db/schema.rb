@@ -39,10 +39,10 @@ ActiveRecord::Schema.define(version: 2021_06_07_234715) do
   end
 
   create_table "categories", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 255
+    t.string "name"
     t.text "keywords"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string "hash_tag"
     t.string "slug"
     t.index ["slug"], name: "index_categories_on_slug", unique: true
@@ -99,18 +99,18 @@ ActiveRecord::Schema.define(version: 2021_06_07_234715) do
   end
 
   create_table "news_items", id: :serial, force: :cascade do |t|
-    t.string "title", limit: 255
+    t.string "title"
     t.text "teaser"
-    t.string "url", limit: 255
+    t.string "url"
     t.integer "source_id"
     t.datetime "published_at"
     t.integer "value"
     t.integer "fb_likes"
     t.integer "retweets"
-    t.string "guid", limit: 255
+    t.string "guid"
     t.integer "xing"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.text "full_text"
     t.integer "word_length"
     t.text "plaintext"
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 2021_06_07_234715) do
     t.integer "reddit"
     t.string "image_file_name"
     t.string "image_content_type"
-    t.integer "image_file_size"
+    t.bigint "image_file_size"
     t.datetime "image_updated_at"
     t.integer "impression_count", default: 0
     t.string "tweet_id"
@@ -131,9 +131,10 @@ ActiveRecord::Schema.define(version: 2021_06_07_234715) do
     t.integer "category_order", array: true
     t.integer "dupe_of_id"
     t.boolean "trend_analyzed", default: false
-    t.boolean "paywall"
+    t.boolean "paywall", default: false
     t.index ["absolute_score", "published_at"], name: "index_news_items_on_absolute_score_and_published_at"
     t.index ["absolute_score"], name: "index_news_items_on_absolute_score"
+    t.index ["absolute_score_per_halflife"], name: "index_news_items_on_absolute_score_per_halflife"
     t.index ["dupe_of_id"], name: "index_news_items_on_dupe_of_id"
     t.index ["guid"], name: "index_news_items_on_guid"
     t.index ["published_at"], name: "index_news_items_on_published_at"
@@ -160,17 +161,17 @@ ActiveRecord::Schema.define(version: 2021_06_07_234715) do
   end
 
   create_table "sources", id: :serial, force: :cascade do |t|
-    t.string "type", limit: 255
-    t.string "url", limit: 255
-    t.string "name", limit: 255
+    t.string "type"
+    t.string "url"
+    t.string "name"
     t.integer "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "logo_file_name", limit: 255
-    t.string "logo_content_type", limit: 255
-    t.integer "logo_file_size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string "logo_file_name"
+    t.string "logo_content_type"
+    t.bigint "logo_file_size"
     t.datetime "logo_updated_at"
-    t.string "full_text_selector", limit: 255
+    t.string "full_text_selector"
     t.boolean "error"
     t.float "multiplicator", default: 1.0
     t.boolean "lsr_active", default: false
@@ -178,7 +179,7 @@ ActiveRecord::Schema.define(version: 2021_06_07_234715) do
     t.integer "default_category_id"
     t.string "lsr_confirmation_file_name"
     t.string "lsr_confirmation_content_type"
-    t.integer "lsr_confirmation_file_size"
+    t.bigint "lsr_confirmation_file_size"
     t.datetime "lsr_confirmation_updated_at"
     t.string "twitter_account"
     t.string "language"
@@ -199,10 +200,10 @@ ActiveRecord::Schema.define(version: 2021_06_07_234715) do
     t.index ["slug"], name: "index_trends_trends_on_slug", unique: true
   end
 
-  create_table "trends_usages", force: :cascade do |t|
+  create_table "trends_usages", id: :serial, force: :cascade do |t|
     t.integer "word_id"
-    t.bigint "news_item_id"
-    t.bigint "source_id"
+    t.integer "news_item_id"
+    t.integer "source_id"
     t.string "calendar_week"
     t.date "date"
     t.integer "usage_type", default: 0
@@ -216,7 +217,7 @@ ActiveRecord::Schema.define(version: 2021_06_07_234715) do
     t.index ["word_id"], name: "index_trends_usages_on_word_id"
   end
 
-  create_table "trends_words", force: :cascade do |t|
+  create_table "trends_words", id: :serial, force: :cascade do |t|
     t.string "word"
     t.boolean "ignore"
     t.integer "word_type", default: 0

@@ -9,9 +9,9 @@ class Admin::TwitterController < AdminController
   def create
     info = request.env['omniauth.auth'].info
 
-    Setting.set('twitter_account', info.nickname)
-    Setting.set('twitter_access_token', request.env['omniauth.auth'].credentials.token)
-    Setting.set('twitter_access_secret', request.env['omniauth.auth'].credentials.secret)
+    # Setting.set('twitter_account', info.nickname)
+    # Setting.set('twitter_access_token', request.env['omniauth.auth'].credentials.token)
+    # Setting.set('twitter_access_secret', request.env['omniauth.auth'].credentials.secret)
     redirect_to '/admin/twitter', notice: "Verbindung erfolgreich"
   end
 

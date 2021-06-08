@@ -10,7 +10,6 @@ class Ability
 
     if user.admin?
       can :manage, Source
-      can :manage, MailSubscription
       can :manage, Category
       can :manage, Setting
       can :manage, :twitter

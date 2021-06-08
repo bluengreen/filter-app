@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
   def index
-    response = Rails.cache.fetch("hrfilter.#{Setting.jobs_url}", expires_in: 10.minutes) {
+    response = Rails.cache.fetch("#{Setting.jobs_url}", expires_in: 10.minutes) {
       HTTParty.get(Setting.jobs_url)['jobs']
     }
     @jobs = response.shuffle

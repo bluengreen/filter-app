@@ -4,6 +4,7 @@ class InitSchema < ActiveRecord::Migration[6.0]
     enable_extension "fuzzystrmatch"
     enable_extension "pg_trgm"
     enable_extension "plpgsql"
+
     create_table "active_storage_attachments" do |t|
       t.string "name", null: false
       t.string "record_type", null: false
@@ -13,6 +14,7 @@ class InitSchema < ActiveRecord::Migration[6.0]
       t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
       t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
     end
+
     create_table "active_storage_blobs" do |t|
       t.string "key", null: false
       t.string "filename", null: false
@@ -23,6 +25,7 @@ class InitSchema < ActiveRecord::Migration[6.0]
       t.datetime "created_at", null: false
       t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
     end
+
     create_table "categories", id: :serial do |t|
       t.string "name"
       t.text "keywords"
@@ -32,11 +35,13 @@ class InitSchema < ActiveRecord::Migration[6.0]
       t.string "slug"
       t.index ["slug"], name: "index_categories_on_slug", unique: true
     end
+
     create_table "categories_news_items", id: false do |t|
       t.integer "category_id"
       t.integer "news_item_id"
       t.index ["category_id", "news_item_id"], name: "categories_news_items_index", unique: true
     end
+
     create_table "categories_trends_words", id: false do |t|
       t.bigint "category_id"
       t.bigint "trends_word_id"
@@ -44,6 +49,7 @@ class InitSchema < ActiveRecord::Migration[6.0]
       t.index ["category_id"], name: "index_categories_trends_words_on_category_id"
       t.index ["trends_word_id"], name: "index_categories_trends_words_on_trends_word_id"
     end
+
     create_table "impressions", id: :serial do |t|
       t.string "impressionable_type"
       t.integer "impressionable_id"
@@ -69,6 +75,7 @@ class InitSchema < ActiveRecord::Migration[6.0]
       t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
       t.index ["user_id"], name: "index_impressions_on_user_id"
     end
+
     create_table "linkages", id: :serial do |t|
       t.integer "from_id"
       t.integer "to_id"
@@ -78,6 +85,7 @@ class InitSchema < ActiveRecord::Migration[6.0]
       t.index ["from_id"], name: "index_linkages_on_from_id"
       t.index ["to_id"], name: "index_linkages_on_to_id"
     end
+
     create_table "news_items", id: :serial do |t|
       t.string "title"
       t.text "teaser"
@@ -122,6 +130,7 @@ class InitSchema < ActiveRecord::Migration[6.0]
       t.index ["source_id"], name: "index_news_items_on_source_id"
       t.index ["value"], name: "index_news_items_on_value"
     end
+
     create_table "push_notifications" do |t|
       t.string "device_hash"
       t.integer "response", default: 0
@@ -132,11 +141,13 @@ class InitSchema < ActiveRecord::Migration[6.0]
       t.string "os"
       t.string "app_version"
     end
+
     create_table "settings", id: :serial do |t|
       t.string "key"
       t.text "value"
       t.index ["key"], name: "index_settings_on_key", unique: true
     end
+
     create_table "sources", id: :serial do |t|
       t.string "type"
       t.string "url"
@@ -168,6 +179,7 @@ class InitSchema < ActiveRecord::Migration[6.0]
       t.string "image_candidates", array: true
       t.index ["type"], name: "index_sources_on_type"
     end
+
     create_table "trends_trends" do |t|
       t.string "name"
       t.datetime "created_at", precision: 6, null: false
@@ -175,6 +187,7 @@ class InitSchema < ActiveRecord::Migration[6.0]
       t.string "slug"
       t.index ["slug"], name: "index_trends_trends_on_slug", unique: true
     end
+
     create_table "trends_usages", id: :serial do |t|
       t.integer "word_id"
       t.integer "news_item_id"
@@ -191,6 +204,7 @@ class InitSchema < ActiveRecord::Migration[6.0]
       t.index ["usage_type"], name: "index_trends_usages_on_usage_type"
       t.index ["word_id"], name: "index_trends_usages_on_word_id"
     end
+
     create_table "trends_words", id: :serial do |t|
       t.string "word"
       t.boolean "ignore"
@@ -201,6 +215,7 @@ class InitSchema < ActiveRecord::Migration[6.0]
       t.index ["word"], name: "index_trends_words_on_word", unique: true
       t.index ["word_type"], name: "index_trends_words_on_word_type"
     end
+
     create_table "users" do |t|
       t.string "email", default: "", null: false
       t.string "encrypted_password", default: "", null: false
@@ -222,6 +237,7 @@ class InitSchema < ActiveRecord::Migration[6.0]
       t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
       t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
     end
+
     add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
     add_foreign_key "trends_usages", "news_items"
     add_foreign_key "trends_usages", "sources"

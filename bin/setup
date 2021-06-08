@@ -20,9 +20,6 @@ if call.length == 0
     system! 'gem install bundler --conservative'
     system('bundle check') || system!('bundle install')
 
-    # Install JavaScript dependencies
-    system('bin/yarn')
-
     unless File.exist?('config/database.yml')
       puts "\n== Copying sample files =="
       FileUtils.cp 'config/database.yml.sample', 'config/database.yml'
